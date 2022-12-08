@@ -34,7 +34,7 @@ variable "SECRET_KEY" {
 }
 variable "MAINTENANCE_MODE" {
   type = string
-  default = ""
+  default = "OFF"
 }
 variable "BASIC_AUTH_USERNAME" {
   type = string
