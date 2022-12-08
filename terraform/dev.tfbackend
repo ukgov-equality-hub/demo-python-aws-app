@@ -1,0 +1,3 @@
+bucket = "jwg-test-terraform-state-bucket"
+key = "jwg-test-terraform-dev.tfstate"
+region = "eu-west-2"
