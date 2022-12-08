@@ -14,8 +14,8 @@ resource "aws_security_group_rule" "security_group_main_app_load_balancer__ingre
   type              = "ingress"
   description       = "Allow ingress: Port 80 from Load Balancer"
   protocol          = "tcp"
-  from_port         = 8000
-  to_port           = 8000
+  from_port         = 80
+  to_port           = 80
   source_security_group_id = aws_security_group.security_group_main_app_load_balancer.id
 }
 
