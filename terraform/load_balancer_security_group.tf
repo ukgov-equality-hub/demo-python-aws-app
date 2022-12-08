@@ -19,32 +19,12 @@ resource "aws_security_group_rule" "security_group_main_app_load_balancer__ingre
   cidr_blocks       = ["0.0.0.0/0"]
 }
 
-resource "aws_security_group_rule" "security_group_main_app_load_balancer__ingress_port8000_instances" {
-  security_group_id = aws_security_group.security_group_main_app_load_balancer.id
-  type              = "ingress"
-  description       = "Allow ingress: Port 8000 from EC2 Instances"
-  protocol          = "tcp"
-  from_port         = 8000
-  to_port           = 8000
-  source_security_group_id = aws_security_group.security_group_main_app_instances.id
-}
-
-resource "aws_security_group_rule" "security_group_main_app_load_balancer__egress_port80_everywhere" {
+resource "aws_security_group_rule" "security_group_main_app_load_balancer__egress_all" {
   security_group_id = aws_security_group.security_group_main_app_load_balancer.id
   type              = "egress"
-  description       = "Allow egress: Port 80 to everywhere"
-  protocol          = "tcp"
-  from_port         = 80
-  to_port           = 80
+  description       = "Allow egress: all"
+  protocol          = "-1"
+  from_port         = 0
+  to_port           = 0
   cidr_blocks       = ["0.0.0.0/0"]
-}
-
-resource "aws_security_group_rule" "security_group_main_app_load_balancer__egress_port8000_instances" {
-  security_group_id = aws_security_group.security_group_main_app_load_balancer.id
-  type              = "egress"
-  description       = "Allow egress: Port 8000 to EC2 Instances"
-  protocol          = "tcp"
-  from_port         = 8000
-  to_port           = 8000
-  source_security_group_id = aws_security_group.security_group_main_app_instances.id
 }

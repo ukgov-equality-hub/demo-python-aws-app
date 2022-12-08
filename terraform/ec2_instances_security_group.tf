@@ -9,7 +9,7 @@ resource "aws_security_group" "security_group_main_app_instances" {
   }
 }
 
-resource "aws_security_group_rule" "security_group_main_app_load_balancer__ingress_port8000_load_balancer" {
+resource "aws_security_group_rule" "security_group_main_app_instances__ingress_port80_load_balancer" {
   security_group_id = aws_security_group.security_group_main_app_instances.id
   type              = "ingress"
   description       = "Allow ingress: Port 80 from Load Balancer"
@@ -19,7 +19,7 @@ resource "aws_security_group_rule" "security_group_main_app_load_balancer__ingre
   source_security_group_id = aws_security_group.security_group_main_app_load_balancer.id
 }
 
-resource "aws_security_group_rule" "security_group_main_app_load_balancer__egress_port8000_all" {
+resource "aws_security_group_rule" "security_group_main_app_instances__egress_all" {
   security_group_id = aws_security_group.security_group_main_app_instances.id
   type              = "egress"
   description       = "Allow egress: all"
