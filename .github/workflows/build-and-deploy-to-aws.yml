@@ -41,12 +41,10 @@ jobs:
       - name: 'Zip up the code'
         run: |
           zip -rq "demo_app_run${{ github.run_id }}_attempt${{ github.run_attempt }}.zip" .
-        working-directory: ./demo_app
 
       - name: 'Copy the zip file to AWS S3'
         run: |
           aws s3 cp "./demo_app_run${{ github.run_id }}_attempt${{ github.run_attempt }}.zip" s3://jwg-test-service--dev--s3-beanstalk20221206164909198200000001
-        working-directory: ./demo_app
 
       - name: 'Create Elastic Beanstalk application version'
         run: |
