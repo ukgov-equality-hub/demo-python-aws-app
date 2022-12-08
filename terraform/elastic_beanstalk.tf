@@ -396,7 +396,7 @@ resource "aws_elastic_beanstalk_environment" "main_app_elastic_beanstalk_environ
   setting {
     namespace = "aws:elasticbeanstalk:application:environment"
     name      = "FLASK_ENV"
-    value     = "development"
+    value     = "production"
   }
   setting {
     namespace = "aws:elasticbeanstalk:application:environment"
@@ -411,12 +411,22 @@ resource "aws_elastic_beanstalk_environment" "main_app_elastic_beanstalk_environ
   setting {
     namespace = "aws:elasticbeanstalk:application:environment"
     name      = "SECRET_KEY"
-    value     = "TODO_INSERT_A_SECRET_KEY_FROM_ENVIRONMENT_VARIABLES"
+    value     = var.SECRET_KEY
   }
   setting {
     namespace = "aws:elasticbeanstalk:application:environment"
-    name      = "ENTERPRISE_TASKFORCE_PASSWORD"
-    value     = "TODO_INSERT_A_PASSWORD_FROM_ENVIRONMENT_VARIABLES"
+    name      = "MAINTENANCE_MODE"
+    value     = var.MAINTENANCE_MODE
+  }
+  setting {
+    namespace = "aws:elasticbeanstalk:application:environment"
+    name      = "BASIC_AUTH_USERNAME"
+    value     = var.BASIC_AUTH_USERNAME
+  }
+  setting {
+    namespace = "aws:elasticbeanstalk:application:environment"
+    name      = "BASIC_AUTH_PASSWORD"
+    value     = var.BASIC_AUTH_PASSWORD
   }
 
 }

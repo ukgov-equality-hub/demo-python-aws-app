@@ -26,3 +26,21 @@ variable "aws_region" {
   description = "The AWS region used for the provider and resources."
   default = "eu-west-2"
 }
+
+// Elastic Beanstalk environment variables - used by the application code
+// These variables are set in GitHub Actions environment-specific secrets - e.g.
+variable "SECRET_KEY" {
+  type = string
+}
+variable "MAINTENANCE_MODE" {
+  type = string
+  default = ""
+}
+variable "BASIC_AUTH_USERNAME" {
+  type = string
+  default = ""
+}
+variable "BASIC_AUTH_PASSWORD" {
+  type = string
+  default = ""
+}
