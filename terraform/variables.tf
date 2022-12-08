@@ -2,13 +2,13 @@
 variable "service_name" {
   type = string
   description = "The short name of the service."
-  default = "JWG_Test_Service"
+  default = "Demo_App"
 }
 
 variable "service_name_hyphens" {
   type = string
   description = "The short name of the service (using hyphen-style)."
-  default = "JWG-Test-Service"
+  default = "Demo-App"
 }
 
 variable "environment" {
