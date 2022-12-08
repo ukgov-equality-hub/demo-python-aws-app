@@ -79,8 +79,9 @@ jobs:
       - id: step_elastic_beanstalk_code_s3_bucket
         name: 'Find the name of the Elastic Beanstalk application code versions S3 bucket'
         run: |
-          echo test=$(jq -r '.resources[] | select(.name == "main_app_elastic_beanstalk_code_s3_bucket").instances[].attributes.bucket' current_tf_state.json) >> $GITHUB_OUTPUT
-          echo $GITHUB_OUTPUT
+          echo test=$(jq -r '.resources[] | select(.name == "main_app_elastic_beanstalk_code_s3_bucket").instances[].attributes.bucket' current_tf_state.json) >> main_app_elastic_beanstalk_code_s3_bucket.txt
+          cat main_app_elastic_beanstalk_code_s3_bucket.txt
+          cat main_app_elastic_beanstalk_code_s3_bucket.txt >> $GITHUB_OUTPUT
 
   build_and_deploy:
     name: 'Build and Deploy'
