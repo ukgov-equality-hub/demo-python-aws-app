@@ -50,7 +50,7 @@ jobs:
 
       - name: 'Create Elastic Beanstalk application version'
         run: |
-          aws elasticbeanstalk create-application-version --application-name JWG_Test_Service__Dev__Elastic_Brenstalk_Application --version-label "v_run${{ github.run_id }}_attempt${{ github.run_attempt }}" --source-bundle "S3Bucket=jwg-test-service--dev--s3-beanstalk20221206164909198200000001,S3Key=./demo_app_run${{ github.run_id }}_attempt${{ github.run_attempt }}.zip"
+          aws elasticbeanstalk create-application-version --application-name JWG_Test_Service__Dev__Elastic_Brenstalk_Application --version-label "v_run${{ github.run_id }}_attempt${{ github.run_attempt }}" --source-bundle "S3Bucket=jwg-test-service--dev--s3-beanstalk20221206164909198200000001,S3Key=demo_app_run${{ github.run_id }}_attempt${{ github.run_attempt }}.zip"
 
       - name: 'Deploy new version to Elastic Beanstalk instances'
         run: |
