@@ -10,8 +10,8 @@ concurrency: ${{ github.workflow }}  # Prevents more than one instance of this w
 jobs:
   terraform_build_deploy:
     uses: ./.github/workflows/_build-and-deploy-shared.yml
-    environment: Dev
     with:
+      GITHUB_ACTIONS_ENVIRONMENT: Dev
       TERRAFORM_SERVICE_NAME: Demo_App
       TERRAFORM_SERVICE_NAME_HYPHENS: Demo-App
       TERRAFORM_ENVIRONMENT_NAME: Dev
