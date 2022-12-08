@@ -9,10 +9,10 @@ var UglifyJS = require("uglify-js");
 
 var pathToCurrentDirectory = '.';
 
-var inputDirectory = './edp_web/to-be-compiled/';
-var inputJsDirectory = './edp_web/to-be-compiled/scripts/';
+var inputDirectory = './demo_app/to-be-compiled/';
+var inputJsDirectory = './demo_app/to-be-compiled/scripts/';
 var otherJsFiles = ['./node_modules/govuk-frontend/govuk/all.js']
-var outputDirectory = '/edp_web/static/assets';
+var outputDirectory = '/demo_app/static/assets';
 
 
 function makeOutputDirectoryIfItDoesNotExist() {
@@ -143,7 +143,7 @@ async function fullRecompile() {
     deleteExistingImagesAndFonts();
 
     copyGovUkImagesAndFonts();
-    compileSass('./edp_web/to-be-compiled/styles/app.scss', 'app');
+    compileSass('./demo_app/to-be-compiled/styles/app.scss', 'app');
 
     compileJs();
 }
